@@ -14,6 +14,13 @@ export function register() {
     default: 'EVENT_1',
     options: ['EVENT_1', 'EVENT_2'],
   });
+  
+  /*
+    Register user-provided datafile
+    This will allow user to upload their own data to the root of your plugin
+    This file, for example, will be uploaded to "plugins/example@identifier/uploaded/data.xml"
+   */
+  R.DataFile('uploaded/data.xml');
 
   /* Register your routes */
   R.Route('example.method', example);
@@ -39,4 +46,10 @@ export function register() {
 
   /* Use --dev argument to enable console output. */
   console.log('Plugin Registered');
+  
+  /*
+    You can check the version of CORE using CORE_VERSION_MAJOR and CORE_VERSION_MINOR
+    Note: these value can be undefined, which means the CORE is version v1.18 and under
+   */
+  console.log(`Core Version: v${CORE_VERSION_MAJOR}.${CORE_VERSION_MINOR}`);
 }
