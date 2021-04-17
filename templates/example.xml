@@ -3,5 +3,6 @@
 -->
 <example status="0">
   <refid __type="str"> <%= refid %> </refid>
+  <datid __type="str"> <%= datid %> </datid>
   <event __type="str"> <%= event %> </event>
 </example>

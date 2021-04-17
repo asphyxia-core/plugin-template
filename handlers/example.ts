@@ -11,12 +11,14 @@ export const example: EPR = async (info, data, send) => {
 
   /*
     Access data from request like this
-    NOTE: all card number will be automatically converted to refid.
+    NOTE: all card number will be automatically converted to refid|dataid.
     This is to support older game that doesn't use cardmng,
       yet still allow them to register with internal profile manager.
     And they can show up in WebUI as a profile, along with card binding feature.
    */
-  const refid = $(data).attr().card;
+  const ids = $(data).attr().card.split('|');
+  const refid = ids[0];
+  const dataid = ids[1];
 
   /* Access config like this */
   const event = U.GetConfig('event');
@@ -42,7 +44,7 @@ export const example: EPR = async (info, data, send) => {
     Send your response like this
     There are more methods for sending request.
    */
-  send.pugFile('templates/example.pug', { refid, event });
+  send.pugFile('templates/example.pug', { refid, event, datid: dataid });
 
   /* Or you can send ejs template (plain xml works as well) */
   // send.xmlFile('templates/example.xml', { refid, event });
