@@ -24,6 +24,11 @@
     button.button.is-primary#plugin-click
       | Send "click" event and refresh
 
+  p#random-number RandomNumber: Click the button below to get a random number
+  p
+    button.button.is-primary#plugin-random
+      | Use emit() to get a random number
+
 //- You can include custom javascripts and send data back to plugin using emit()
     see profile_name.pug for sending data using form
 script(src="static/js/custom_page.js")

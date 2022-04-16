@@ -53,3 +53,7 @@ export const example: EPR = async (info, data, send) => {
 export const changeName = async (data: any) => {
   await DB.Update(data.refid, { collection: 'profile' }, { $set: { name: data.name } });
 };
+
+export const randomNumber = async (data: any, send: WebUISend) => {
+  send.json({ number: Math.floor(Math.random() * 100) });
+};

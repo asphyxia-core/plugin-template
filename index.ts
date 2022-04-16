@@ -1,4 +1,4 @@
-import { example, changeName } from './handlers/example';
+import { example, changeName, randomNumber } from './handlers/example';
 
 export function register() {
   /* Register game code */
@@ -14,7 +14,7 @@ export function register() {
     default: 'EVENT_1',
     options: ['EVENT_1', 'EVENT_2'],
   });
-  
+
   /*
     Register user-provided datafile
     This will allow user to upload their own data to the root of your plugin
@@ -44,9 +44,12 @@ export function register() {
   /* Register a event and increment the click counter */
   R.WebUIEvent('change', changeName);
 
+  /* Register a event that respond with a random number */
+  R.WebUIEvent('random', randomNumber);
+
   /* Use --dev argument to enable console output. */
   console.log('Plugin Registered');
-  
+
   /*
     You can check the version of CORE using CORE_VERSION_MAJOR and CORE_VERSION_MINOR
     Note: these value can be undefined, which means the CORE is version v1.18 and under
